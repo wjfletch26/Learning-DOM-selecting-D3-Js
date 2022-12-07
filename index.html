@@ -2,30 +2,121 @@
 <html lang="en">
 <head>
     <title>Learning-DOM-selecting-D3-js</title>
-    <script src="https://d3js.org/d3.v7.min.js" 
+    <script src="https://d3js.org/d3.v3.min.js" 
         charset="utf-8"></script> 
+    <link rel="stylesheet" href="styles.css">
     <!-- <style>
         /* .big{font-size:24px;} */
     </style> -->
 </head>
 <body>
-    <ul> class="items">
+
+    <H1> Top Smartphones</H1>
+    <ul class="item">
+        <li>iPhone 6</li>
+        <li>Galaxy S6</li>
+        <li> LG G3</li>
+        <li>Windows</li>
+        <li>HTC One</li>
+
+
+    <!-- Below list <li> is for the videos 1 & 2 -->
+    <!-- <ul class="items">
         <li> This is an item</li>
         <li> This is an item</li>
         <li> This is an item</li>
         <li> This is an item</li>
-        <li> This is an item</li>
-        <!-- <li> This is an item</li> -->
+        <li> This is an item</li> 
+        <li> This is an item</li> -->
     </ul>
 
     <script>
-        var numArray = [12, 20, 33, 40, 55];
-
+        var styles = [
+        {
+            'background':'red',
+            'color':'white',
+            'width':'35'
+        },
+        {
+            'background':'yellow',
+            'color':'black',
+            'width':'25'
+        },
+        {
+            'background':'green',
+            'color':'white',
+            'width':'20'
+        },
+        {
+            'background':'black',
+            'color':'white',
+            'width':'10'
+        },
+        {
+            'background':'orange',
+            'color':'white',
+            'width':'10'
+         }
+        ];
         d3.selectAll('.items li')
-            .data(numArray)
-            .text(function(d){ 
-                return 'this is item number' +d;
+        .data(styles)
+        .li.style('font-size','18px')
+        .li.style('padding','6px')
+        .li.style('margin','4px')
+        .li.style('list-list','none')
+        .li.style('background',function(d){
+            return d.background;
             })
+            .style('color',function(d){
+            return d.color;
+            })
+            .style('width',function(d){
+            return d.width+'%';
+            });
+
+        //  d3.selectAll('.items li')
+        //  .data(styles)
+        //  .style({
+        //     'font-size':'18px',
+        //     'padding':'6px',
+        //     'margin':'4px',
+        //     'list-style':'none',
+        //     'background': function(d) {
+        //         return d.background;
+        //     },
+        //     'color':function(d) {
+        //         return d.color;
+        //     },
+        //     'width':function(d){
+        //         return d.width+'%';
+        //     }
+        //  });
+
+
+            // Below list <li> is for the videos 1 & 2
+
+        // var numArray = [12, 20, 33, 40, 55, 60, 75, 80, 90];
+
+        // var li = d3.select("body").selectAll('items li') 
+        //     .data(numArray)
+        //     .text(function(d) { return "I’m number " + d + "!"; });
+
+        // li.enter().append('li')
+        // .text(function(d){return 'this is item number' +d;});
+
+        // li.exit().remove();
+
+        // d3.selectAll('.items li')
+        //     .data(numArray)
+        //     .style('font-size', function(d){ return d+ 'px';
+        // })
+       
+        // d3.selectAll('.items li')
+        //     .data(numArray)
+        //     .text(function(d){ 
+        //         return 'this is item number' +d;
+        //     })
+
         // d3.selectAll('li:nth-child(even)') 
         // .style('color','red')
         // .html('This is an even number')
